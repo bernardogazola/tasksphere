@@ -1,0 +1,30 @@
+{
+  "name": "tasksphere",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "bun run build:remotes && concurrently -n host,tarefas,dashboard,equipe -c blue,green,yellow,magenta \"bun run dev:host\" \"bun run serve:tarefas\" \"bun run serve:dashboard\" \"bun run serve:equipe\"",
+    "dev:host": "cd apps/host && bun run dev",
+    "serve:tarefas": "cd apps/tarefas && bun run preview",
+    "serve:dashboard": "cd apps/dashboard && bun run preview",
+    "serve:equipe": "cd apps/equipe && bun run preview",
+    "build": "bun run build:remotes && bun run build:host",
+    "build:remotes": "concurrently \"cd apps/tarefas && bun run build\" \"cd apps/dashboard && bun run build\" \"cd apps/equipe && bun run build\"",
+    "build:host": "cd apps/host && bun run build",
+    "build:combined": "bun run build && node scripts/combine-dist.js",
+    "preview": "concurrently \"cd apps/tarefas && bun run preview\" \"cd apps/dashboard && bun run preview\" \"cd apps/equipe && bun run preview\" \"cd apps/host && bun run preview\"",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "concurrently": "^9.1.2",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.4.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.57.0"
+  }
+}

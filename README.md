@@ -122,3 +122,4 @@ bun run build
 - Emmanuel
 - Misael
 - Otávio
+- Icaro

@@ -4,7 +4,7 @@ Sistema de gerenciamento de tarefas para equipes acadêmicas, desenvolvido com a
 
 ## Site Publicado
 
-> **Azure Web Static Apps:** [inserir URL aqui]
+> **Azure Web Static Apps:** https://orange-rock-074cc910f.1.azurestaticapps.net/
 
 ---
 
@@ -28,12 +28,12 @@ O projeto utiliza **Module Federation** para integrar microfrontends independent
 
 ### Microfrontends
 
-| MFE | Porta | Responsabilidade |
-|-----|-------|------------------|
-| **Host** | 5100 | Shell principal com layout e roteamento |
-| **Tarefas** | 5001 | CRUD de tarefas (cadastrar, listar, editar status, excluir) |
-| **Dashboard** | 5002 | Resumo por status, progresso geral, tarefas recentes |
-| **Equipe** | 5003 | Exibição dos integrantes do grupo |
+| MFE           | Porta | Responsabilidade                                            |
+| ------------- | ----- | ----------------------------------------------------------- |
+| **Host**      | 5100  | Shell principal com layout e roteamento                     |
+| **Tarefas**   | 5001  | CRUD de tarefas (cadastrar, listar, editar status, excluir) |
+| **Dashboard** | 5002  | Resumo por status, progresso geral, tarefas recentes        |
+| **Equipe**    | 5003  | Exibição dos integrantes do grupo                           |
 
 ### Comunicação entre MFEs
 
@@ -91,6 +91,7 @@ bun run dev
 ```
 
 Isso inicia os 4 servidores simultaneamente:
+
 - Host: http://localhost:5100
 - Tarefas: http://localhost:5001
 - Dashboard: http://localhost:5002
